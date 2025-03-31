@@ -1,16 +1,26 @@
 name: T5-4.7 PLUS CI
 
 on:
-  push:
-    paths:
-      - 'target/esp32s3/boards/LILYGO_T5-4.7-PLUS/**'
-      - 'target/esp32s3/esp32s3.mk'
-      - '.github/workflows/t5-4.7-plus.yml'
-  pull_request:
-    paths:
-      - 'target/esp32s3/boards/LILYGO_T5-4.7-PLUS/**'
-      - 'target/esp32s3/esp32s3.mk'
-      - '.github/workflows/t5-4.7-plus.yml'
+  workflow_dispatch:
+    inputs:
+      log_level:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+      environment:
+        description: 'Environment to deploy'
+        required: false
+        default: 'staging'
+  # push:
+  #   paths:
+  #     - 'target/esp32s3/boards/LILYGO_T5-4.7-PLUS/**'
+  #     - 'target/esp32s3/esp32s3.mk'
+  #     - '.github/workflows/t5-4.7-plus.yml'
+  # pull_request:
+  #   paths:
+  #     - 'target/esp32s3/boards/LILYGO_T5-4.7-PLUS/**'
+  #     - 'target/esp32s3/esp32s3.mk'
+  #     - '.github/workflows/t5-4.7-plus.yml'
 
 jobs:
   build_t5-47-plus:
